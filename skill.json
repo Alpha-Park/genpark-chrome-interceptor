@@ -1,0 +1,10 @@
+{
+  "name": "genpark-chrome-interceptor",
+  "version": "1.0.0",
+  "description": "GenPark Chrome Interceptor - CDP network request priority queue scheduling, DOM tree tag edit distance, and anti-bot fingerprint timing jitter synthesis with zero dependencies.",
+  "tools": [
+    "schedule_network_priority_queue",
+    "calculate_dom_tree_edit_distance",
+    "synthesize_fingerprint_jitter"
+  ]
+}
