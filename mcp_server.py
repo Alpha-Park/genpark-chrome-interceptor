@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List, Optional
 from client import GenParkChromeInterceptor
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("genpark-chrome-interceptor")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("genpark-chrome-interceptor")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('genpark-chrome-interceptor')
 
 interceptor = GenParkChromeInterceptor()
 
@@ -57,8 +48,7 @@ def synthesize_fingerprint_jitter(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Chrome Interceptor:")
-    print(synthesize_fingerprint_jitter(200.0, 30.0))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
